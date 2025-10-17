@@ -16,5 +16,8 @@ public class Main {
         System.out.println("Tienes permiso de conducir?");
         boolean conducir = teclado.nextBoolean();
         operadores.evaluarCandidato(salarioEntrada, edadEntrada, conducir );
+
+
+        
     }
 }
