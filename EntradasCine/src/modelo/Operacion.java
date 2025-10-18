@@ -14,6 +14,7 @@ public class Operacion {
 
     public void setPrecioBase(double precioBase) {
         this.PRECIO_BASE = precioBase;
+        precioActualEntada = PRECIO_BASE;
     }
 
     public void aplicarDescuentos(String dia, String estudiante) {

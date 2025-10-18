@@ -4,8 +4,8 @@ import javax.swing.*;
 
 import modelo.Datos;
 import modelo.Operacion;
+import utilidades.Terminal;
 
-import java.io.File;
 
 public class Gui {
 
@@ -21,6 +21,7 @@ public class Gui {
 
     Operacion operacion = new Operacion();
     Datos datos = new Datos();
+    Terminal terminal = new Terminal();
 
     private String errores = "";
 
@@ -37,30 +38,7 @@ public class Gui {
 
         });
         abrirTerminalButton.addActionListener(_ -> {
-
-            //Esto lo ha generado la IA para lanzar la consola según ejecutemos .jar/.class
-            abrirTerminalButton.addActionListener(_ -> {
-                try {
-                    File currentPath = new File(Gui.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-                    String command;
-
-                    if (currentPath.getName().endsWith(".jar")) {
-                        command = "java -jar \"" + currentPath.getName() + "\" debug";
-                        new ProcessBuilder("cmd.exe", "/c", "start cmd /k " + command)
-                                .directory(currentPath.getParentFile())
-                                .start();
-                    } else {
-                        command = "java Main debug";
-                        new ProcessBuilder("cmd.exe", "/c", "start cmd /k " + command)
-                                .directory(new File("out/production/EntradasCine"))
-                                .start();
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Error al abrir la terminal");
-                }
-            });
-
+            terminal.ejcutarTerminal();
         });
 
     }
@@ -121,10 +99,9 @@ public class Gui {
     private void comprobarNuevoPrecioEntrada() {
         try {
             double valorElegidoEntrada = Double.parseDouble(txtPrecioSingleEntrada.getText());
-            if(valorElegidoEntrada <= 0){
+            if (valorElegidoEntrada <= 0) {
                 errores += "Debe introducir un valor mayor a 0 en el campo 'Precio por entrada'\n";
-            }
-            else if (valorElegidoEntrada != 8.0) {
+            } else if (valorElegidoEntrada != 8.0) {
                 operacion.setPrecioBase(valorElegidoEntrada);
             }
         } catch (NumberFormatException error) {
@@ -132,7 +109,8 @@ public class Gui {
         }
 
     }
-    private void limpiarCampos(){
+
+    private void limpiarCampos() {
         datos.setNumeroEntradas(0);
         datos.setDiaSemana(null);
         datos.setEstudiante(null);
