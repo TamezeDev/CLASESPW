@@ -17,7 +17,7 @@ public class Datos {
                 numeroEntradas = Integer.parseInt(teclado.nextLine());
                 if (numeroEntradas > 0) break;
                 System.out.println("Por favor, introduce un número válido mayor que 0.");
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException error) {
                 System.out.println("Entrada no válida. Debes introducir un número.");
             }
         }
@@ -43,7 +43,7 @@ public class Datos {
         }
     }
 
-    private boolean comprobarDiaSemana(String dia) {
+    public boolean comprobarDiaSemana(String dia) {
         return Arrays.asList("LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO")
                 .contains(dia);
     }
@@ -62,5 +62,17 @@ public class Datos {
 
     public String getEstudiante() {
         return estudiante;
+    }
+
+    public void setNumeroEntradas(int numeroEntradas) {
+        this.numeroEntradas = numeroEntradas;
+    }
+
+    public void setEstudiante(String estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
     }
 }

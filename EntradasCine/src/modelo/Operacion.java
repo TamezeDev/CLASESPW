@@ -1,12 +1,20 @@
 package modelo;
 
 public class Operacion {
-    private final double PRECIO_BASE = 8;
+    private double PRECIO_BASE = 8;
     private double cantidadDescuentoTotalAplicado = 0;
     private double precioActualEntada = PRECIO_BASE;
     private int porcentajeDescuentoTotalAplicado = 0;
     private boolean descuentoAnterior;
     private String palomitasGratis;
+
+    public double getPRECIO_BASE() {
+        return PRECIO_BASE;
+    }
+
+    public void setPrecioBase(double precioBase) {
+        this.PRECIO_BASE = precioBase;
+    }
 
     public void aplicarDescuentos(String dia, String estudiante) {
         aplicarDescuentoDia(dia);

@@ -2,6 +2,9 @@ package utilidades;
 
 import modelo.Datos;
 import modelo.Operacion;
+import interfaz.Gui;
+
+import javax.swing.*;
 
 public class Configuracion {
     public boolean debug = true;//modo debug desactivado para UI
@@ -19,6 +22,26 @@ public class Configuracion {
     }
 
     public void modoDebug() {
+        startDebug();
+    }
+
+    public void modoUI() {
+        startUi();
+
+    }
+
+    private void startUi() {
+        Gui gui = new Gui();
+        JFrame frame = new JFrame("Principal");
+        frame.setContentPane(gui.getPanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        gui.cargarPrecioBase();
+    }
+
+    private void startDebug() {
         Datos datos = new Datos();
         Operacion operacion = new Operacion();
         datos.pedirDatos();
@@ -27,9 +50,4 @@ public class Configuracion {
         operacion.comboChecker(precioFinal);
         System.out.println(operacion.generarResumen(datos.getNumeroEntradas()));
     }
-
-    public void modoUI() {
-
-    }
-
 }
