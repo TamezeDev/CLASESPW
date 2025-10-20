@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="EntradasCine:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/EntradasCine_jar</output-path>
-    <root id="archive" name="EntradasCine.jar">
-      <element id="module-output" name="EntradasCine" />
-    </root>
-  </artifact>
-</component>
