@@ -67,4 +67,17 @@ public class Operadores {
         boolean resultado = sueldo  < 20000 && edad < 40 && conducir;
         System.out.println("La evaluacion del candidato es " + resultado);
     }
+
+    public void cambioTipo(){
+        double numeroDecimal = 5.98;
+        System.out.println(numeroDecimal);
+        int  numeroEntero = 7;
+        System.out.println((int) numeroDecimal); //se pierde la parte decimal
+        String palabra = "12345";
+        int numeroPalabra  = Integer.valueOf(palabra + 10);
+        System.out.println(numeroPalabra);
+        int numeroEvaluar = 12345;
+        String numeroEvaluarStr = String.valueOf(numeroEvaluar);
+        System.out.println(numeroEvaluarStr);
+    }
 }

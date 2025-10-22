@@ -5,7 +5,7 @@ public class Ejercicio {
     //iniciar herrramientas
     Scanner lecturaTeclado;
 
-    public void ejercicio1(){
+    public void ejercicio1() {
         //pedir datos
         lecturaTeclado = new Scanner(System.in);
         System.out.println("Cuantos bocatas vais a pedir?");
@@ -34,7 +34,64 @@ public class Ejercicio {
 
     }
 
-    public void ejercicio4(){
+    public void ejercicio2() {
+        //pedir datos
+        double precioFinal;
+        byte iva;
+        System.out.println("Introduce el precio total de la compra");
+        lecturaTeclado = new Scanner(System.in);
+        precioFinal = lecturaTeclado.nextDouble();
+        System.out.println("Introduce el valor del iva de la compra");
+        iva = lecturaTeclado.nextByte();
+        //operar datos
+        double precioBase = precioFinal / (1 + ((double) iva / 100));
+        double precioIva = precioFinal - precioBase;
+        //mostrar resultados
+        System.out.printf("El precio base de la compra ha sido %.2f%n", precioBase);
+        System.out.printf("El precio del iva ha sido %.2f%n", precioIva);
+        lecturaTeclado.close();
+        lecturaTeclado = null;
+    }
+
+    public void ejercicio3ModoA() {
+        //pedir datos
+        lecturaTeclado = new Scanner(System.in);
+        int numeroSeleccionado;
+        System.out.println("Introduce un numero de 5 dígitos");
+        numeroSeleccionado = lecturaTeclado.nextInt();
+        //operar datos
+        String numeroAString = Integer.toString(numeroSeleccionado);
+        String [] letras = numeroAString.split("");
+        System.out.println(numeroAString);
+
+        //mostrar datos
+        System.out.println("decenas de mil: "+letras[0]);
+        System.out.println("unidades de mil: "+letras[1]);
+        System.out.println("centenas: "+letras[2]);
+        System.out.println("decenas: "+letras[3]);
+        System.out.println("unidades: "+letras[4]);
+
+        lecturaTeclado.close();
+        lecturaTeclado = null;
+    }
+
+    public  void ejercicio3ModoB(){
+        //pedir datos
+        lecturaTeclado = new Scanner(System.in);
+        int numeroSeleccionado;
+        System.out.println("Introduce un numero de 5 dígitos");
+        numeroSeleccionado = lecturaTeclado.nextInt();
+        //operar datos
+        byte centenasDeMil = (byte)(numeroSeleccionado / 10000);
+        byte decenasDeMil = (byte)((numeroSeleccionado -(centenasDeMil*10000))/1000);
+        
+
+        //mostrar datos
+
+        lecturaTeclado.close();
+        lecturaTeclado = null;
+    }
+    public void ejercicio4() {
         lecturaTeclado = new Scanner(System.in);
         System.out.println("¿Cuantos segundos quieres pasar a tiempo?");
         int segundosTotal = lecturaTeclado.nextInt();
@@ -49,5 +106,8 @@ public class Ejercicio {
         lecturaTeclado.close();
         lecturaTeclado = null;
 
-    }
 }
+
+
+}
+
