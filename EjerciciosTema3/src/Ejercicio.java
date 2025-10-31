@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -656,7 +655,8 @@ public class Ejercicio {
         }
         System.out.println("Cerrando el programa");
     }
-    public void  ejercicio18(){
+
+    public void ejercicio18() {
 //Escribe un programa que pida dos números y una operación (+, -, *, /). Usa un switch para realizar la operación correspondiente y mostrar el resultado.
         double num1, num2;
         char operacion;
@@ -664,25 +664,176 @@ public class Ejercicio {
         num1 = scanner.nextDouble();
         System.out.println("introduce el sugundo número a operar: ");
         num2 = scanner.nextDouble();
-        System.out.println("Que operación quieres hacer? (+,-,*,/");
+        System.out.println("Que operación quieres hacer? (+,-,*,/)");
         operacion = scanner.next().charAt(0);
 
-        switch (operacion){
+        switch (operacion) {
             case '+' -> {
-                System.out.println("Resultado: " + num1 +" " + operacion + " "+ num2 +" = "+ (num1 + num2));
+                System.out.println("Resultado: " + num1 + " " + operacion + " " + num2 + " = " + (num1 + num2));
             }
             case '-' -> {
-                System.out.println("Resultado: " + num1 +" " + operacion + " "+ num2 +" = "+ (num1 - num2));
+                System.out.println("Resultado: " + num1 + " " + operacion + " " + num2 + " = " + (num1 - num2));
             }
             case '*' -> {
-                System.out.println("Resultado: " + num1 +" " + operacion + " "+ num2 +" = "+ (num1 * num2));
+                System.out.println("Resultado: " + num1 + " " + operacion + " " + num2 + " = " + (num1 * num2));
             }
             case '/' -> {
-                System.out.println("Resultado: " + num1 +" " + operacion + " "+ num2 +" = "+ (Math.floor(num1 / num2)));
+                System.out.printf("Resultado: %.1f + %.1f = %.1f%n", num1, num2, (num1 / num2));
             }
             default -> {
-                System.out.println("operador no admitida");            }
+                System.out.println("operador no admitida");
+            }
         }
         System.out.println("Cerrando el programa");
+    }
+
+    public void ejercicio19() {
+        //Crea un programa que muestre un menú con 4 opciones: 1=Ver perfil, 2=Configuración, 3=Ayuda, 4=Salir. Pide al usuario que elija una opción y usa un switch para mostrar el mensaje correspondiente a cada opción.
+        int eleccion;
+        System.out.print("--- MENÚ ---\n1. Ver perfil\n2. Configuración\n3. Ayuda\n4. Salir\n");
+        System.out.print("Elige una opción: ");
+        eleccion = scanner.nextInt();
+        switch (eleccion) {
+            case 1 -> {
+                System.out.println("Has seleccionado: Ver perfil");
+            }
+            case 2 -> {
+                System.out.println("Has seleccionado: Configuración");
+            }
+            case 3 -> {
+                System.out.println("Has seleccionado: Ayuda");
+            }
+            case 4 -> {
+                System.out.println("Has seleccionado: Salir");
+            }
+            default -> {
+                System.out.println("Debe seleccionar una de las opciones.");
+            }
+        }
+    }
+
+    public void ejercicio20() {
+//        Desarrolla un programa que pida un mes (número del 1 al 12) y use un switch para determinar la estación del año: Invierno (12, 1, 2), Primavera (3, 4, 5), Verano (6, 7, 8), Otoño (9, 10, 11).
+        int num;
+        System.out.println("Introduce el numero del mes: (1-12)");
+        num = scanner.nextInt();
+        switch (num) {
+            case 12, 1, 2 -> {
+                System.out.println("El mes " + num + " corresponde a: Invierno");
+            }
+            case 3, 4, 5 -> {
+                System.out.println("El mes " + num + " corresponde a: Primavera");
+            }
+            case 6, 7, 8 -> {
+                System.out.println("El mes " + num + " corresponde a: Verano");
+            }
+            case 9, 10, 11 -> {
+                System.out.println("El mes " + num + " corresponde a: Otoño");
+            }
+            default -> {
+                System.out.println("tiene que introducir valores válidos");
+            }
+        }
+
+    }
+
+    public void ejercicio21() {
+//        Escribe un programa que pida un número y use un bucle for para mostrar su tabla de multiplicar del 1 al 10.
+        int numero;
+        System.out.println("Introduce un número: ");
+        numero = scanner.nextInt();
+        System.out.println("Tabla del " + numero + ":");
+        for (int i = 0; i <= 10; i++) {
+            System.out.printf("%d x %d = %d%n", numero, i, (numero * i));
+        }
+    }
+
+    public void ejercicio22() {
+//        Crea un programa que pida un número N y use un bucle for para calcular la suma de todos los números desde 1 hasta N. Muestra el resultado final.
+        int num, suma = 0;
+        System.out.println("Introduce un número: ");
+        num = scanner.nextInt();
+        System.out.print("Sumando: ");
+        for (int i = 1; i <= num; i++) {
+            if (i == num) {
+                System.out.print(i + "\n");
+            } else {
+                System.out.printf("%d + ", i);
+            }
+            suma += i;
+        }
+        System.out.println("La suma de los número del 1 al " + num + " es: " + suma);
+    }
+
+    public void ejercicio23() {
+//        Desarrolla un programa que pida un número N y use un bucle for para contar cuántos números pares e impares hay desde 1 hasta N. Muestra ambos contadores.
+        int numero, pares = 0, impares = 0;
+        System.out.println("Introduce un número: ");
+        numero = scanner.nextInt();
+        System.out.println("Recorriendo los números del 1 al " + numero + "...");
+        for (int i = 1; i <= numero; i++) {
+            if (i % 2 == 0) {
+                pares += 1;
+            } else {
+                impares += 1;
+            }
+        }
+        System.out.println("Numeros pares encontrados: " + pares);
+        System.out.println("Numeros impares encontrados: " + impares);
+    }
+
+    public void ejercicio24() {
+//        Escribe un programa que pida un número entero positivo y calcule su factorial usando un bucle for. El factorial de N es: N! = N × (N-1) × (N-2) × ... × 1
+        int numero, factorial = 1;
+        System.out.println("Introduce un numero positivo: ");
+        numero = scanner.nextInt();
+        System.out.println("Calculando " + numero + "!");
+        for (int i = numero; i > 0; i--) {
+            if (i == 1) {
+                System.out.print(i + "\n");
+            } else {
+                System.out.print(i + " x ");
+            }
+            factorial *= i;
+        }
+        System.out.println("El factorial de " + numero + " es: " + factorial);
+    }
+
+    public void ejercicio25(){
+//        Crea un programa que muestre un menú con 3 tipos de ejercicios: 1=Flexiones, 2=Abdominales, 3=Sentadillas. Pide al usuario que elija un ejercicio y cuántas repeticiones quiere hacer. Usa un switch para determinar el ejercicio y un for para contar las repeticiones una a una.
+        int seleccion, repeticiones;
+        String ejercicio;
+        System.out.println("--- EJERCICIOS ---\n1. Flexiones\n2. Abdominales\n3. Sentadillas\nElige un ejercicio (1-3): ");
+        seleccion = scanner.nextInt();
+        System.out.println("¿Cuántas repeticiones?");
+        repeticiones = scanner.nextInt();
+        switch (seleccion){
+            case 1 ->  {
+                System.out.println("Has elegido: Flexiones");
+                ejercicio = "flexiones";
+            }
+            case 2 -> {
+                System.out.println("Has elegido: Abdominales");
+                ejercicio = "abdominales";
+            }
+            case 3 -> {
+                System.out.println("Has elegido: Sentadilla");
+                ejercicio = "sentadillas";
+            }default -> {
+                System.out.println("Debe seleccionar una de las 3 opciones");
+                ejercicio = null;
+            }
+        }
+        if (seleccion >0 && seleccion <4){
+        for (int i = 1; i <= repeticiones ; i++) {
+            try {
+                System.out.println("Repetición " + i + " completada");
+                Thread.sleep(3000);
+            }catch (InterruptedException error){
+                error.printStackTrace();
+            }
+        }
+
+        System.out.println("¡EJERCICIO COMPLETADO! Has hecho "+ repeticiones + " " + ejercicio);}
     }
 }

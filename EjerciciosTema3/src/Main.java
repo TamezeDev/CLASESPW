@@ -18,6 +18,13 @@ public class Main {
 //        System.out.println(ejercicio.ejercicio15());
 //        ejercicio.ejercicio16();
 //        ejercicio.ejercicio17();
-        ejercicio.ejercicio18();
+//        ejercicio.ejercicio18();
+//        ejercicio.ejercicio19();
+//        ejercicio.ejercicio20();
+//        ejercicio.ejercicio21();
+//        ejercicio.ejercicio22();
+//        ejercicio.ejercicio23();
+//        ejercicio.ejercicio24();
+        ejercicio.ejercicio25();
     }
 }
