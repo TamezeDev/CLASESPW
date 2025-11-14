@@ -1,3 +1,4 @@
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -627,6 +628,25 @@ public class Ejercicio {
         System.out.println("Cerrando el programa");
     }
 
+    public void ejercicio16B() {
+        //Crea un programa que pida un número del 1 al 7 y use un switch para mostrar el día de la semana correspondiente (1=Lunes, 2=Martes, etc.).
+        enum diaSemana {Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo}
+        System.out.println("Introduce un numero del 1 al 7");
+        int numeroUser = scanner.nextInt();
+
+
+        switch (numeroUser) {
+            case 1 -> System.out.println("Hoy es " + diaSemana.Lunes);
+            case 2 -> System.out.println("Hoy es " + diaSemana.Martes);
+            case 3 -> System.out.println("Hoy es " + diaSemana.Miercoles);
+            case 4 -> System.out.println("Hoy es " + diaSemana.Jueves);
+            case 5 -> System.out.println("Hoy es " + diaSemana.Viernes);
+            case 6 -> System.out.println("Hoy es " + diaSemana.Sabado);
+            case 7 -> System.out.println("Hoy es " + diaSemana.Domingo);
+            default -> System.out.println("Numero fuera del rango de evaluación");
+        }
+    }
+
     public void ejercicio17() {
         //Desarrolla un programa que pida una letra de calificación (A, B, C, D, F) y use un switch para mostrar el mensaje correspondiente: A="Excelente", B="Muy bien", C="Bien", D="Suficiente", F="Insuficiente".
         char letra;
@@ -654,6 +674,34 @@ public class Ejercicio {
             }
         }
         System.out.println("Cerrando el programa");
+    }
+
+    public void ejercicio17B() {
+        //Desarrolla un programa que pida una letra de calificación (A, B, C, D, F) y use un switch para mostrar el mensaje correspondiente: A="Excelente", B="Muy bien", C="Bien", D="Suficiente", F="Insuficiente".
+        enum calificaciones {Excelente, Muy_Bien, Bien, Suficiente, Insuficiente}
+        ;
+
+        System.out.println("Introduce una letra para evaluar");
+        char letra = scanner.next().toUpperCase().charAt(0);
+        switch (letra) {
+            case 'A':
+                System.out.println(calificaciones.Excelente);
+                break;
+            case 'B':
+                System.out.println(calificaciones.Muy_Bien);
+                break;
+            case 'C':
+                System.out.println(calificaciones.Bien);
+                break;
+            case 'D':
+                System.out.println(calificaciones.Suficiente);
+                break;
+            case 'F':
+                System.out.println(calificaciones.Insuficiente);
+                break;
+            default:
+                System.out.println("Caracter no evaluado");
+        }
     }
 
     public void ejercicio18() {
@@ -685,6 +733,23 @@ public class Ejercicio {
             }
         }
         System.out.println("Cerrando el programa");
+    }
+
+    public void ejercicio18B() {
+        //Escribe un programa que pida dos números y una operación (+, -, *, /). Usa un switch para realizar la operación correspondiente y mostrar el resultado.
+        System.out.println("Introduce el primer número: ");
+        int num1 = scanner.nextInt();
+        System.out.println("Introduce el segundo número: ");
+        int num2 = scanner.nextInt();
+        System.out.println("Introduce una operación(+,-,*,/");
+        char operator = scanner.next().charAt(0);
+        switch (operator) {
+            case '+' -> System.out.printf("Resusltado: %d %s %d = %d", num1, operator, num2, (num1 + num2));
+            case '-' -> System.out.printf("Resusltado: %d %s %d = %d", num1, operator, num2, (num1 - num2));
+            case '*' -> System.out.printf("Resusltado: %d %s %d = %d", num1, operator, num2, (num1 * num2));
+            case '/' -> System.out.printf("Resusltado: %d %s %d = %.2f", num1, operator, num2, ((double) num1 / num2));
+
+        }
     }
 
     public void ejercicio19() {
@@ -799,7 +864,7 @@ public class Ejercicio {
         System.out.println("El factorial de " + numero + " es: " + factorial);
     }
 
-    public void ejercicio25(){
+    public void ejercicio25() {
 //        Crea un programa que muestre un menú con 3 tipos de ejercicios: 1=Flexiones, 2=Abdominales, 3=Sentadillas. Pide al usuario que elija un ejercicio y cuántas repeticiones quiere hacer. Usa un switch para determinar el ejercicio y un for para contar las repeticiones una a una.
         int seleccion, repeticiones;
         String ejercicio;
@@ -807,8 +872,8 @@ public class Ejercicio {
         seleccion = scanner.nextInt();
         System.out.println("¿Cuántas repeticiones?");
         repeticiones = scanner.nextInt();
-        switch (seleccion){
-            case 1 ->  {
+        switch (seleccion) {
+            case 1 -> {
                 System.out.println("Has elegido: Flexiones");
                 ejercicio = "flexiones";
             }
@@ -819,21 +884,385 @@ public class Ejercicio {
             case 3 -> {
                 System.out.println("Has elegido: Sentadilla");
                 ejercicio = "sentadillas";
-            }default -> {
+            }
+            default -> {
                 System.out.println("Debe seleccionar una de las 3 opciones");
                 ejercicio = null;
             }
         }
-        if (seleccion >0 && seleccion <4){
-        for (int i = 1; i <= repeticiones ; i++) {
-            try {
-                System.out.println("Repetición " + i + " completada");
-                Thread.sleep(3000);
-            }catch (InterruptedException error){
-                error.printStackTrace();
+        if (seleccion > 0 && seleccion < 4) {
+            for (int i = 1; i <= repeticiones; i++) {
+                try {
+                    System.out.println("Repetición " + i + " completada");
+                    Thread.sleep(3000);
+                } catch (InterruptedException error) {
+                    error.printStackTrace();
+                }
+            }
+
+            System.out.println("¡EJERCICIO COMPLETADO! Has hecho " + repeticiones + " " + ejercicio);
+        }
+    }
+
+    //Ejercicios While, do-while
+
+    public void ejercicio26() {
+        //Crea un programa que pida un número N y use un bucle while para contar desde 1 hasta N, mostrando cada número.
+        System.out.println("Introduce un numero");
+        int num = scanner.nextInt(), counter = 0;
+        while (counter < num) {
+            counter++;
+            System.out.println(counter);
+        }
+    }
+
+    public void ejercicio27() {
+        //Desarrolla un programa que pida al usuario una contraseña. La contraseña correcta es "1234". Usa un bucle do-while para seguir pidiendo la contraseña hasta que el usuario la introduzca correctamente.
+        int correctPass = 1234, userPass;
+        System.out.println("Introduce la contraseña secreta");
+        do {
+            System.out.println("Contraseña incorrecta, intentalo de nuevo");
+            userPass = scanner.nextInt();
+        } while (correctPass != userPass);
+        System.out.println("Contraseña correcta! Acceso permitido");
+    }
+
+    public void ejercicio28() {
+        //Escribe un programa que pida números al usuario y los vaya sumando. El bucle while debe continuar mientras el usuario introduzca números positivos. Cuando introduzca un número negativo o cero, el programa debe terminar y mostrar la suma total.
+        int sumaUser = 0, numUser;
+        System.out.println("Introduce un numero(0 o negativo para terminar):");
+        do {
+            numUser = scanner.nextInt();
+            if (numUser > 0) {
+                sumaUser += numUser;
+            }
+            System.out.println("suma actual: " + sumaUser);
+            System.out.println("Introduce un numero(0 o negativo para terminar):");
+
+        } while (numUser >= 0);
+    }
+
+    public void ejercicio29() {
+        //Crea un juego donde el programa elige un número secreto entre 1 y 10 (por ejemplo, 7). Usa un bucle do-while para pedir al usuario que adivine el número. El programa debe indicar si el número es mayor o menor, y continuar hasta que el usuario acierte.
+        int secretRandomNum = (int) (Math.random() * 11), intento = 0, userNum;
+        System.out.println("Adivina el número entre el 1 y el 10");
+        do {
+            System.out.println("Introduce tu intento");
+            intento++;
+            userNum = scanner.nextInt();
+            if (userNum < secretRandomNum) {
+                System.out.println("El numero secreto es mayor");
+
+
+            } else if (userNum > secretRandomNum) {
+                System.out.println("El numero secreto es menor");
+            }
+        } while (userNum != secretRandomNum);
+        System.out.println("Correcto! Has adivinado el número en " + intento + " intentos.");
+    }
+
+    public void ejercicio30() {
+        //Desarrolla un programa con un menú que se repita usando do-while. El menú debe tener 4 opciones: 1=Saludar, 2=Despedirse, 3=Ver hora actual (puedes mostrar un mensaje fijo), 4=Salir. Usa switch para procesar cada opción. El programa solo debe terminar cuando el usuario elija la opción 4.
+        LocalTime now = LocalTime.now();
+        int userNum;
+
+        do {
+            System.out.println("\n\n------MENU-------\n1. Saludar\n2. Despedirse\n3. Ver hora actual\n4. Salir\nElige una opción: ");
+            userNum = scanner.nextInt();
+
+            switch (userNum) {
+                case 1 -> System.out.println("Hola! Como estas?");
+                case 2 -> System.out.println("Gracias, hasta luego!");
+                case 3 -> System.out.println("La hora actual es: " + now);
+                case 4 -> System.out.println("Cerrando programa");
+                default -> System.out.println("El numero no esta contenido en el programa");
+            }
+        } while (userNum != 4);
+    }
+
+    public void ejercicio31() {
+        //Escribe un programa que pida un número N y use un bucle while para hacer una cuenta atrás desde N hasta 1, mostrando cada número. Al llegar a 1, debe mostrar "¡Despegue!".
+        int userNum;
+        System.out.println("Introduce un numero: ");
+        userNum = scanner.nextInt();
+        while (userNum > 0) {
+            System.out.println(userNum);
+            userNum--;
+        }
+        System.out.println("¡DESPEGUE!");
+    }
+
+    public void ejercicio32() {
+        //Crea un programa que pida al usuario cuántas calificaciones va a introducir. Luego, usa un bucle while para pedir cada calificación una por una, sumarlas y al final calcular y mostrar el promedio.
+        float numCalificaciones, sumaTotal = 0;
+        int range = 1;
+        System.out.println("Cuantas calificaciones vas a introducir?");
+        numCalificaciones = scanner.nextFloat();
+        while (range <= numCalificaciones) {
+            System.out.println("Introduce la calificación " + range + ":");
+            range++;
+            sumaTotal += scanner.nextFloat();
+
+        }
+        System.out.printf("Promedio de calificaciones: %.2f", (sumaTotal / numCalificaciones));
+    }
+
+    public void ejercicio33() {
+        //Desarrolla un programa que pida la edad del usuario. Usa un bucle do-while para validar que la edad introducida esté entre 0 y 120. Si no es válida, debe volver a pedirla. Una vez válida, muestra un mensaje de confirmación.
+        int ageUser;
+        do {
+            System.out.println("Introduce tu edad: ");
+            ageUser = scanner.nextInt();
+            if (ageUser < 0 || ageUser > 120) {
+                System.out.println("Edad no válida. Debe estar entre 0 y 120 años");
+            } else {
+                System.out.printf("Edad válida: %d años. Gracias.", ageUser);
+                break;
+            }
+        } while (true);
+
+    }
+
+    public void ejercicio34() {
+        //Crea un programa que pida al usuario cuántos estudiantes hay en una clase. Para cada estudiante, usa un bucle while para pedir su calificación numérica (0-10). Luego, usa un bucle for para mostrar todas las calificaciones y usa un switch para convertir cada nota numérica en letra: 9-10=A, 7-8=B, 5-6=C, 3-4=D, 0-2=F.
+        int numStudents, index = 1;
+
+        System.out.println("¿Cuantos estudiantes hay en la clase?");
+        numStudents = scanner.nextInt();
+        int[] noteStudents = new int[numStudents];
+        while (index <= numStudents) {
+            System.out.println("Introduce la nota del estudiante " + index + "(0-10):");
+            noteStudents[index - 1] = scanner.nextInt();
+            index++;
+        }
+        for (int i = 0; i < numStudents; i++) {
+            switch (noteStudents[i]) {
+                case 10, 9 ->
+                        System.out.println("Estudiante " + (i + 1) + ": " + noteStudents[i] + " puntos = CALIFICACIÓN A");
+                case 7, 8 ->
+                        System.out.println("Estudiante " + (i + 1) + ": " + noteStudents[i] + " puntos = CALIFICACIÓN B");
+                case 5, 6 ->
+                        System.out.println("Estudiante " + (i + 1) + ": " + noteStudents[i] + " puntos = CALIFICACIÓN C");
+                case 3, 4 ->
+                        System.out.println("Estudiante " + (i + 1) + ": " + noteStudents[i] + " puntos = CALIFICACIÓN D");
+                case 0, 1, 2 ->
+                        System.out.println("Estudiante " + (i + 1) + ": " + noteStudents[i] + " puntos = CALIFICACIÓN F");
             }
         }
-
-        System.out.println("¡EJERCICIO COMPLETADO! Has hecho "+ repeticiones + " " + ejercicio);}
     }
+
+    public void ejercicio35() {
+        //Desarrolla un programa que simule un cajero automático. El saldo inicial es 1000€. Usa un bucle do-while para mostrar un menú con opciones: 1=Consultar saldo, 2=Retirar dinero, 3=Depositar dinero, 4=Salir. Usa switch para cada opción. Para retirar dinero, usa un bucle while para validar que no se retire más del saldo disponible (si intenta retirar más, debe volver a pedir la cantidad). Para depositar, valida que sea una cantidad positiva.
+        int numUser;
+        float currentCredit = 1000f;
+        System.out.println("----CAJERO AUTOMÁTICO----\nSaldo inicial: 1000€");
+        do {
+            System.out.println("\n\n-----MENU----\n1. Consultar saldo\n2. Retirar dinero\n3. Depositar Dinero\n4, Salir\nElige una opción: ");
+            numUser = scanner.nextInt();
+            switch (numUser) {
+                case 1 -> System.out.printf("Tu saldo actual es: %.2f€\n", currentCredit);
+                case 2 -> {
+                    float getCredit;
+                    do {
+                        System.out.println("¿Cuanto dinero desea retirar?");
+                        getCredit = scanner.nextFloat();
+                        if (getCredit < 0) {
+                            System.out.println("No puedes retirar menos de 0");
+                        } else if (getCredit > currentCredit) {
+                            System.out.printf("Fondos insuficientes. Tu saldo es: %.2f€\n", currentCredit);
+                        }
+                    } while (getCredit < 0 || getCredit > currentCredit);
+                    currentCredit -= getCredit;
+                    System.out.printf("Retiro exitoso. Has retirado %.2f€\nNuevo saldo: %.2f€\n", getCredit, currentCredit);
+
+                }
+                case 3 -> {
+                    System.out.println("¿Cuanto deseas depositar?");
+                    float addCredit = scanner.nextFloat();
+                    if (addCredit < 0) {
+                        System.out.println("No puedes ingresar un valor negativo.");
+                    } else {
+                        System.out.printf("Depósito exitoso. Has depositado: %.2f€\n", addCredit);
+                        currentCredit += addCredit;
+                        System.out.printf("Nuevo saldo: %.2f€", currentCredit);
+                    }
+                }
+                case 4 -> {
+                    System.out.println("Gracias por usar el cajero. ¡Hasta luego!");
+                    return;
+                }
+            }
+        } while (true);
+    }
+
+    //Ejercicios Extra tema3
+
+    public void ejercicio36() {
+        int intentos = 7, numeroSistema = (int) (Math.random() * 51);
+        boolean acertado = false;
+        do {
+            System.out.println("Introduce el numero para ver si aciertas");
+            int numeroUsuario = scanner.nextInt();
+            intentos--;
+            if (numeroUsuario == numeroSistema) {
+                System.out.println("Has acertado el número!");
+                acertado = true;
+                break;
+
+            }
+            System.out.println("número incorrecto");
+            if (numeroUsuario < numeroSistema) {
+                System.out.println("El numero es mas grande");
+            } else {
+                System.out.println("El numero es mas pequeño");
+            }
+
+        } while (intentos > 0);
+
+        if (!acertado) {
+            System.out.println("Lo siento, has perdido");
+        }
+        System.out.println("Terminado el juego");
+        System.out.println("Has usado " + (7 - intentos) + " intentos.");
+    }
+
+    public void ejercicio37() {
+        String palabraSistema = "frase", palabraUsuario;
+        int intentos = 5, numeroAcierto = 0, numeroAprox = 0, numeroFallos = 0;
+        do {
+            System.out.println("Introduce la palabra");
+            palabraUsuario = scanner.next();
+            intentos--;
+            numeroAprox = 0;
+            numeroAcierto = 0;
+            numeroFallos = 0;
+            for (int i = 0; i < palabraSistema.length(); i++) {
+                if (palabraSistema.equals(palabraUsuario)) {
+                    numeroAcierto = palabraSistema.length();
+                    break;
+                } else if (palabraSistema.charAt(i) == palabraUsuario.charAt(i)) {
+                    numeroAcierto++;
+                } else if (palabraSistema.contains(String.valueOf(palabraUsuario.charAt(i)))) {
+                    numeroAprox++;
+                } else {
+                    numeroFallos++;
+                }
+            }
+            System.out.println("Los aciertos en este intento es: " + numeroAcierto);
+            System.out.println("Los aciertos en este aprox es: " + numeroAprox);
+            System.out.println("Los aciertos en este fallos es: " + numeroFallos);
+        } while (intentos > 0 && numeroAcierto < 5);
+        if (numeroAcierto == 5) {
+
+            System.out.println("Palabra acertada correctamente");
+        } else {
+            System.out.println("No acertaste la palabra");
+        }
+    }
+
+    public void ejercicio38() {
+        int precioPizza = 0, counterIngredients = 0;
+        String ingredientesPizza = "";
+        System.out.println("Creador de pizzas");
+        do {
+            System.out.println("\n\nEl menu de pizza es:\n1. Queso\n2. Jamon\n 3. Piña\n4. Tomate\n5.Peperoni\n0. Salir\nIndica el ingrediente a agregar: \n");
+            int ingrediente = scanner.nextInt();
+            counterIngredients++;
+
+            switch (ingrediente) {
+
+                case 1 -> {
+                    precioPizza += 10;
+                    ingredientesPizza += "Queso ";
+                }
+                case 2 -> {
+                    precioPizza += 15;
+                    ingredientesPizza += "Jamon ";
+                }
+                case 3 -> {
+                    precioPizza += 8;
+                    ingredientesPizza += "Piña ";
+                }
+                case 4 -> {
+                    precioPizza += 6;
+                    ingredientesPizza += "Tomate ";
+                }
+                case 5 -> {
+                    precioPizza += 12;
+                    ingredientesPizza += "Peperoni ";
+                }
+                case 0 -> {
+                    counterIngredients = 5;
+                }
+
+            }
+        } while (counterIngredients <= 5);
+        System.out.println("El precio de la pizza es " + precioPizza);
+        System.out.println("Los ingredientes son: " + ingredientesPizza);
+    }
+
+    public void ejercicio39() {
+        String player1, player2;
+        int counterPlayer1 = 0, counterPlayer2 = 0;
+        int scorePlayer1 = 301, scorePlayer2 = 301;
+        System.out.println("Iniciando minijuego 301");
+        System.out.println("Introduce el nombre del jugador 1: ");
+        player1 = scanner.nextLine();
+        System.out.println("Introduce el nombre del jugador 2: ");
+        player2 = scanner.nextLine();
+        System.out.println("Cada jugador lanzará 3 dardos, el sistema genera 3 números aleatorios en 1 y 60. Se descontará del total de puntos la suma de los 3 dardos. El primero jugador que alcance el valor exacto de 0 ganará la partida");
+        System.out.println("Jugador 1: " + scorePlayer1 + " puntos");
+        System.out.println("Jugador 2: " + scorePlayer2 + " puntos");
+
+        do {
+            round(player1, scorePlayer1, counterPlayer1);
+            checkerGame(player1, player2, scorePlayer1, scorePlayer2);
+            round(player2, scorePlayer2, counterPlayer2);
+            checkerGame(player1, player2, scorePlayer1, scorePlayer2);
+        } while (round(player1, scorePlayer1, counterPlayer1) || round(player2, scorePlayer2, counterPlayer2));
+
+        if (scorePlayer1 == 0) {
+            System.out.printf("Enhorabuena %s, has ganado. Te ha llevado %d turnos", player1, counterPlayer1);
+        } else {
+            System.out.printf("Enhorabuena %s, has ganado. Te ha llevado %d turnos", player2, counterPlayer2);
+        }
+    }
+
+    private boolean round(String player, int score, int counter) {
+        System.out.printf("Turno de %s\nPulsa enter para lanzar los dardos...", player);
+        scanner.nextLine();
+
+
+        int sumaDardos = 0;
+        for (int i = 1; i <= 3; i++) {
+            int dardo = (int) ((Math.random() * 60) + 1);
+            System.out.println("El resultado del dardo " + i + " es " + dardo);
+            sumaDardos += dardo;
+        }
+        System.out.println("El total ha sido: " + (sumaDardos));
+        if ((score - sumaDardos) > 0) {
+            score -= sumaDardos;
+            if (score == 0) {
+                return true;
+            }
+        } else {
+            System.out.println("Ha sacado más puntos de los que te quedan. No se descuentan");
+        }
+        return false;
+    }
+
+    private void checkerGame(String nameP1, String nameP2, int score1, int score2) {
+        System.out.printf("Puntos de %s: %d\nPuntos de %s: %d\n", nameP1, score1, nameP2, score2);
+        if (score1 < score2) {
+            System.out.printf("%s está ganando la partida", nameP1);
+
+        } else if (score1 == score2) {
+            System.out.println("La partida va empatada");
+        } else {
+            System.out.printf("%s está ganando la partida\n", nameP2);
+
+        }
+    }
+
+
 }

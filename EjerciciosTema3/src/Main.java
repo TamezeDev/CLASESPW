@@ -12,7 +12,7 @@ public class Main {
 //        System.out.println(ejercicio.ejercicio9());
 //        System.out.println(ejercicio.ejercicio10());
 //        System.out.println(ejercicio.ejercicio11());
-        System.out.println(ejercicio.ejercicio12());
+//        System.out.println(ejercicio.ejercicio12());
 //        System.out.println(ejercicio.ejercicio13());
 //        System.out.println(ejercicio.ejercicio14());
 //        System.out.println(ejercicio.ejercicio15());
@@ -26,5 +26,18 @@ public class Main {
 //        ejercicio.ejercicio23();
 //        ejercicio.ejercicio24();
 //        ejercicio.ejercicio25();
+//        ejercicio.ejercicio26();
+//        ejercicio.ejercicio27();
+//        ejercicio.ejercicio28();
+//        ejercicio.ejercicio29();
+//        ejercicio.ejercicio30();
+//        ejercicio.ejercicio31();
+//        ejercicio.ejercicio32();
+//        ejercicio.ejercicio33();
+//        ejercicio.ejercicio34();
+//        ejercicio.ejercicio35();
+//        ejercicio.ejercicio37();
+//        ejercicio.ejercicio38();
+          ejercicio.ejercicio39();
     }
 }
