@@ -1212,14 +1212,22 @@ public class Ejercicio {
         player2 = scanner.nextLine();
         System.out.println("Cada jugador lanzará 3 dardos, el sistema genera 3 números aleatorios en 1 y 60. Se descontará del total de puntos la suma de los 3 dardos. El primero jugador que alcance el valor exacto de 0 ganará la partida");
         System.out.println("Jugador 1: " + scorePlayer1 + " puntos");
-        System.out.println("Jugador 2: " + scorePlayer2 + " puntos");
+        System.out.println("Jugador 2: " + scorePlayer2 + " puntos\n");
 
         do {
-            round(player1, scorePlayer1, counterPlayer1);
-            checkerGame(player1, player2, scorePlayer1, scorePlayer2);
-            round(player2, scorePlayer2, counterPlayer2);
-            checkerGame(player1, player2, scorePlayer1, scorePlayer2);
-        } while (round(player1, scorePlayer1, counterPlayer1) || round(player2, scorePlayer2, counterPlayer2));
+            if (counterPlayer1 != 0) {
+                checkerGame(player1, player2, scorePlayer1, scorePlayer2);
+            }
+            counterPlayer1++;
+            scorePlayer1 = game(player1, scorePlayer1);
+
+            if (scorePlayer1 != 0) {
+                checkerGame(player1, player2, scorePlayer1, scorePlayer2);
+                counterPlayer2++;
+                scorePlayer2 = game(player2, scorePlayer2);
+            }
+
+        } while (scorePlayer1 != 0 || scorePlayer2 != 0);
 
         if (scorePlayer1 == 0) {
             System.out.printf("Enhorabuena %s, has ganado. Te ha llevado %d turnos", player1, counterPlayer1);
@@ -1228,10 +1236,9 @@ public class Ejercicio {
         }
     }
 
-    private boolean round(String player, int score, int counter) {
+    private int game(String player, int score) {
         System.out.printf("Turno de %s\nPulsa enter para lanzar los dardos...", player);
         scanner.nextLine();
-
 
         int sumaDardos = 0;
         for (int i = 1; i <= 3; i++) {
@@ -1239,27 +1246,24 @@ public class Ejercicio {
             System.out.println("El resultado del dardo " + i + " es " + dardo);
             sumaDardos += dardo;
         }
-        System.out.println("El total ha sido: " + (sumaDardos));
+        System.out.printf("El total ha sido: %d \n\n", (sumaDardos));
         if ((score - sumaDardos) > 0) {
             score -= sumaDardos;
-            if (score == 0) {
-                return true;
-            }
         } else {
             System.out.println("Ha sacado más puntos de los que te quedan. No se descuentan");
         }
-        return false;
+        return score;
     }
 
     private void checkerGame(String nameP1, String nameP2, int score1, int score2) {
         System.out.printf("Puntos de %s: %d\nPuntos de %s: %d\n", nameP1, score1, nameP2, score2);
         if (score1 < score2) {
-            System.out.printf("%s está ganando la partida", nameP1);
+            System.out.printf("%s está ganando la partida\n\n", nameP1);
 
         } else if (score1 == score2) {
-            System.out.println("La partida va empatada");
+            System.out.println("La partida va empatada\n\n");
         } else {
-            System.out.printf("%s está ganando la partida\n", nameP2);
+            System.out.printf("%s está ganando la partida\n\n", nameP2);
 
         }
     }

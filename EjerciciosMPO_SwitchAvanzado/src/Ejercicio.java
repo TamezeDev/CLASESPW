@@ -101,7 +101,7 @@ public class Ejercicio {
         }
     }
 
-    public void ejercicio7(){
+    public void ejercicio7() {
         //Objetivo: Crear un sistema que determine el nivel del jugador según su puntuación.
     }
 
