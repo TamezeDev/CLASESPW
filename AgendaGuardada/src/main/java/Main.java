@@ -1,0 +1,8 @@
+import service.UserService;
+
+public class Main {
+    public static void main(String []srgs) {
+        UserService service = new UserService();
+        service.showMenu();
+    }
+}

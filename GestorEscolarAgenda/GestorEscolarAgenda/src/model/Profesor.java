@@ -1,6 +1,6 @@
 package model;
 
-public class Profesor extends Persona {
+public abstract class Profesor extends Persona {
 
     private int salario;
     private int nivelExperiencia;
@@ -15,15 +15,17 @@ public class Profesor extends Persona {
         System.out.println("nivel de experiencia: " + getNivelExperiencia());
     }
 
-    public Profesor(String nombre, String apellido, int nivelExperiencia, int salario) {
+    public Profesor(String nombre, String apellido) {
         super(nombre, apellido);
-        this.nivelExperiencia = nivelExperiencia;
-        this.salario = salario;
     }
 
     @Override
     public  void saludar(){
         System.out.println("Hola soy un profesor");
+    }
+
+    public void corregirExamen(){
+        System.out.println("Procedo a corregir los exámenes");
     }
 
     public int getSalario() {

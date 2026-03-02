@@ -1,0 +1,10 @@
+esto es un ejemplo para porbar inputs
+Esta es otra fila del fichero para poder obtener una segunda lectura
+Esta es la tercera fila del fichero
+
+
+
+
+
+
+FIN

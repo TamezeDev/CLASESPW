@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Libreria>
+    <libro anio="1994" nPaginas="123123" isbn="100">
+        <titulo>Libro1</titulo>
+        <escritor>Escritor1</escritor>
+        <categoria>Ciencia FIcción</categoria>
+        <personaje tipo="Principal" muerto="false">
+            <nombre>Pers1Libro1</nombre>
+        </personaje>
+        <personaje tipo="Principal" muerto="true">
+            <nombre>Pers2Libro</nombre>
+        </personaje>
+        <personaje tipo="secundario" muerto="false">
+            <nombre>Pers3Libro</nombre>
+        </personaje>
+    </libro>
+    <libro anio="2000" nPaginas="234234" isbn="200">
+        <titulo>Libro1</titulo>
+        <escritor>Escritor2</escritor>
+        <categoria>Narrativa</categoria>
+        <personaje tipo="Principal" muerto="false">
+            <nombre>Pers1Libro2</nombre>
+        </personaje>
+        <personaje tipo="Principal" muerto="false">
+            <nombre>Pers2Libro2</nombre>
+        </personaje>
+    </libro>
+    <libro anio="2020" nPaginas="345345" isbn="300">
+        <titulo>Libro3</titulo>
+        <escritor>Escritor3</escritor>
+        <categoria>Accion</categoria>
+        <personaje tipo="Secundario" muerto="true">
+            <nombre>Pers1Libro3</nombre>
+        </personaje>
+        <personaje tipo="Principal" muerto="false">
+            <nombre>Pers2Libro3</nombre>
+        </personaje>
+    </libro>
+</Libreria>

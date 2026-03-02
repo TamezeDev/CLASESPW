@@ -1,0 +1,5 @@
+este texto es la prueba
+para trabajar con streams
+inputs
+output
+ficheros
